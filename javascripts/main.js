@@ -12,7 +12,7 @@ $(document).ready(function () {
     }).appendTo(".mobile-navigation select");
 
     // Populate dropdown with menu items
-    $(".main-nav ul li a").each(function () {
+    $(".main-navigation ul li a").each(function () {
         var el = $(this);
         $("<option />", {
             "value": el.attr("href"),
@@ -20,6 +20,7 @@ $(document).ready(function () {
         }).appendTo(".mobile-navigation select");
     });
 
+    // Make it all work
     $(".mobile-navigation select").change(function () {
         window.location = $(this).find("option:selected").val();
     });
