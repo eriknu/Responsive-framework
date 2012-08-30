@@ -79,7 +79,7 @@ nav.mobile-navigation { display: none !important; }
 
 
 
-/* #Less Functions
+/* #Less Mixins
 ================================================== */
 .gradient(@startColor: #555, @endColor: #333) {
   background-color: @endColor;
@@ -122,11 +122,14 @@ nav.mobile-navigation { display: none !important; }
           border-top-left-radius: @topleft;
 }
 
-.opacity(@opacity: 0.5) {
-	-webkit-opacity: @opacity;
-	 -khtml-opacity: @opacity;
-     -moz-opacity: @opacity;
-          opacity: @opacity;
+.opacity( @opacity: 0.8 ) {
+    @ieopacity: @opacity * 100;
+    filter: ~"alpha(opacity = @{ieopacity} )";
+     
+   -webkit-opacity: @opacity;
+    -khtml-opacity: @opacity;
+      -moz-opacity: @opacity;
+           opacity: @opacity;
 }
 
 .rotation(@deg:5deg){ 
@@ -175,5 +178,5 @@ nav.mobile-navigation { display: none !important; }
 
 .text-shadow(@horizontal: 1px, @vertical: 1px, @blur: 2px, @color: #000) {
   text-shadow: @horizontal @vertical @blur @color;
-  filter: e(%("dropshadow(color=%d, offx=%d, offy=%d)", @color, @horizontal, @vertical)); // IE9 and down
+  /*filter: e(%("dropshadow(color=%d, offx=%d, offy=%d)", @color, @horizontal, @vertical)); // IE9 and down*/
 }
